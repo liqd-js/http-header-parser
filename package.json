@@ -1,0 +1,32 @@
+{
+  "name": "@liqd-js/http-header-parser",
+  "description": "HTTP Header parser",
+  "version": "1.0.1",
+  "author": "radixxko",
+  "license": "MIT",
+  "main": "lib/http_header_parser.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "test": "nyc mocha",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/liqd-js/http-header-parser.git"
+  },
+  "keywords": [
+    "http",
+    "header",
+    "parser",
+    "liqd-js",
+    "liqd"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^3.0.5",
+    "mocha": "^5.0.4",
+    "nyc": "^14.1.1"
+  }
+}
