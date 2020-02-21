@@ -1,7 +1,7 @@
 {
   "name": "@liqd-js/http-header-parser",
   "description": "HTTP Header parser",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "radixxko",
   "license": "MIT",
   "main": "lib/http_header_parser.js",

@@ -39,6 +39,32 @@ describe( 'Tests', ( done ) =>
         assert.deepStrictEqual( HttpHeaderParser.parse( headers + '\r\n' ), result, 'headers not parsed properly' );
     });
 
+    it('should not parse after http header string', function()
+	{
+        let headers = 
+            'Date: Mon, 23 May 2005 22:38:34 GMT\r\n' +
+            'Content-Type: text/html; charset=UTF-8\r\n\r\n' +
+            'Content-Disposition: form-data;\r\n\tname="fieldName";\r\n filename="filename.jpg"\r\n' +
+            'Content-Length: 138\r\n' +
+            'Last-Modified: Wed, 08 Jan 2003 23:11:55 GMT\r\n' +
+            'Server: Apache/1.3.3.7 (Unix) (Red-Hat/Linux)\r\n' +
+            'ETag: "3f80f-1b6-3e1cb03b"\r\n' + 
+            'Accept-Ranges: bytes\r\n' +
+            'Set-Cookie: foo=bar\r\n' +
+            'Set-Cookie: bar=foo\r\n' +
+            'Set-Cookie: foobar=barfoo\r\n' +
+            'Connection: close';
+
+        let result = 
+        {
+            date: 'Mon, 23 May 2005 22:38:34 GMT',
+            'content-type': 'text/html; charset=UTF-8'
+        }
+
+        assert.deepStrictEqual( HttpHeaderParser.parse( headers ), result, 'headers not parsed properly' );
+        assert.deepStrictEqual( HttpHeaderParser.parse( headers + '\r\n' ), result, 'headers not parsed properly' );
+    });
+
     it('should parse http header value', function()
 	{
         let values = 
